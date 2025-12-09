@@ -44,33 +44,20 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import classification_report
 import joblib
-
-
 df = pd.read_csv("v_data.csv")
-
-
 le_type = LabelEncoder()
 df["type_encoded"] = le_type.fit_transform(df["type"])
-
 le_priority = LabelEncoder()
 df["priority_encoded"] = le_priority.fit_transform(df["priority"])
-
 X = df[["score", "type_encoded"]]
 y = df["priority_encoded"]
-
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
 model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
-
-# Evaluate
 print(classification_report(y_test, model.predict(X_test)))
-
-# Save model and encoders
 joblib.dump(model, "priority_model.pkl")
 joblib.dump(le_type, "type_encoder.pkl")
 joblib.dump(le_priority, "priority_encoder.pkl")
-
 print("✅ Modèle entraîné et sauvegardé avec succès.")
 
 
@@ -78,15 +65,11 @@ print("✅ Modèle entraîné et sauvegardé avec succès.")
 #### **2.3 Priorisation des Vulnérabilités**
 
 
-# predict.py
 import joblib
 import numpy as np
-
-
 model = joblib.load("priority_model.pkl")
 type_encoder = joblib.load("type_encoder.pkl")
 priority_encoder = joblib.load("priority_encoder.pkl")
-
 def predict_priority(vuln_type: str, score: float) -> str:
     try:
         encoded_type = type_encoder.transform([vuln_type])[0]
@@ -116,7 +99,7 @@ def test_priority():
 
 
 
-### **Étape " : L'intégration d'API dans le site web avec React**
+### **Étape 3" : L'intégration d'API dans le site web avec React**
 
 """""""
 const handlePredict = async () => {
