@@ -116,9 +116,9 @@ def test_priority():
 
 
 
-### **Étape 4 : L'intégration d'API dans le site web avec React**
+### **Étape " : L'intégration d'API dans le site web avec React**
 
-
+"""""""
 const handlePredict = async () => {
     if (!score || !type) {
       alert("Please enter a vulnerability description");
@@ -135,10 +135,10 @@ const handlePredict = async () => {
       setPrediction("Error");
     }
   };
+"""""""
 
 
-
-
+Application web: 
 <img width="949" height="482" alt="dashboard" src="https://github.com/user-attachments/assets/66204914-36b5-4e67-bcca-6e8c84e0be77" />
 <img width="939" height="478" alt="Capture d’écran 2025-09-15 193326" src="https://github.com/user-attachments/assets/16df630f-a209-4b8f-b5e3-598239e23bbc" />
 <img width="956" height="487" alt="Capture d’écran 2025-09-15 193408" src="https://github.com/user-attachments/assets/4e075130-1708-41ef-9913-50f4631c6343" />
