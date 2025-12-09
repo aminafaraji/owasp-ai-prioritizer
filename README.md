@@ -108,7 +108,6 @@ def test_priority():
     text = data.get("description", "")
     if not text:
         return jsonify({"error": "Missing vulnerability description"}), 400
-
     try:
         priority = predict_priority(text)
         return jsonify({"priority": priority})
@@ -117,7 +116,7 @@ def test_priority():
 
 
 
-### **Étape 1 : L'intégration d'API dans le site web avec React**
+### **Étape 4 : L'intégration d'API dans le site web avec React**
 
 
 const handlePredict = async () => {
@@ -138,12 +137,12 @@ const handlePredict = async () => {
   };
 
 
+
+
 <img width="949" height="482" alt="dashboard" src="https://github.com/user-attachments/assets/66204914-36b5-4e67-bcca-6e8c84e0be77" />
 <img width="939" height="478" alt="Capture d’écran 2025-09-15 193326" src="https://github.com/user-attachments/assets/16df630f-a209-4b8f-b5e3-598239e23bbc" />
-
 <img width="956" height="487" alt="Capture d’écran 2025-09-15 193408" src="https://github.com/user-attachments/assets/4e075130-1708-41ef-9913-50f4631c6343" />
 <img width="956" height="496" alt="login" src="https://github.com/user-attachments/assets/d11f042f-6a7f-4199-b228-5a518dfbd895" />
-
 <img width="949" height="487" alt="scan1" src="https://github.com/user-attachm<img width="960" height="488" alt="scan2" src="https://github.com/user-attachments/assets/41de0f3a-78bb-4973-9f69-582afaed9e36" />
 ents/assets/5d2b6e85-4681-420f-a809-81bb694c1792" />
 <img width="949" height="484" alt="scan3" src="https://github.com/user-attachments/assets/b717a0ec-731d-4fee-9315-5ce7044450ac" />
