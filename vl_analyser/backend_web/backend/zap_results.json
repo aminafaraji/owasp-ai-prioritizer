@@ -1,0 +1,138 @@
+{
+    "site": [
+      {
+        "name": "http://testphp.vulnweb.com",
+        "host": "testphp.vulnweb.com",
+        "port": 80,
+        "alerts": [
+          {
+            "alert": "Cross Site Scripting (Reflected)",
+            "name": "Cross Site Scripting (Reflected)",
+            "risk": "High",
+            "confidence": "Medium",
+            "desc": "Reflected XSS vulnerability in search field.",
+            "solution": "Sanitize and encode all user input.",
+            "cweid": 79,
+            "wascid": 8,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/index.php",
+                "method": "GET",
+                "param": "search",
+                "evidence": "<script>alert(123)</script>"
+              }
+            ]
+          },
+          {
+            "alert": "SQL Injection",
+            "name": "SQL Injection",
+            "risk": "High",
+            "confidence": "High",
+            "desc": "SQL injection vulnerability in artist parameter.",
+            "solution": "Use parameterized queries.",
+            "cweid": 89,
+            "wascid": 19,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/artists.php",
+                "method": "GET",
+                "param": "artist",
+                "evidence": "' OR '1'='1"
+              }
+            ]
+          },
+          {
+            "alert": "Directory Browsing",
+            "name": "Directory Browsing",
+            "risk": "Medium",
+            "confidence": "High",
+            "desc": "Directory indexing is enabled on /uploads/",
+            "solution": "Disable directory listing on the web server.",
+            "cweid": 548,
+            "wascid": 13,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/uploads/",
+                "method": "GET",
+                "param": "",
+                "evidence": "index of /uploads"
+              }
+            ]
+          },
+          {
+            "alert": "Insecure Cookies",
+            "name": "Insecure Cookies",
+            "risk": "Low",
+            "confidence": "High",
+            "desc": "Cookies without the HttpOnly or Secure flag.",
+            "solution": "Add the HttpOnly and Secure attributes.",
+            "cweid": 614,
+            "wascid": 13,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/",
+                "method": "GET",
+                "param": "Set-Cookie",
+                "evidence": "PHPSESSID=123456"
+              }
+            ]
+          },
+          {
+            "alert": "Server Leaks Version Information via 'Server' HTTP Response Header Field",
+            "name": "Information Disclosure",
+            "risk": "Low",
+            "confidence": "Medium",
+            "desc": "Server header reveals the software and version.",
+            "solution": "Remove or obfuscate version information in headers.",
+            "cweid": 200,
+            "wascid": 13,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/",
+                "method": "GET",
+                "param": "Server",
+                "evidence": "Apache/2.4.18 (Ubuntu)"
+              }
+            ]
+          },
+          {
+            "alert": "Cross-Site Request Forgery (CSRF)",
+            "name": "CSRF",
+            "risk": "Medium",
+            "confidence": "Medium",
+            "desc": "No anti-CSRF tokens were found on sensitive forms.",
+            "solution": "Implement CSRF tokens in forms.",
+            "cweid": 352,
+            "wascid": 9,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/submit.php",
+                "method": "POST",
+                "param": "form",
+                "evidence": "No CSRF token"
+              }
+            ]
+          },
+          {
+            "alert": "Content Security Policy (CSP) Not Set",
+            "name": "Missing CSP Header",
+            "risk": "Medium",
+            "confidence": "High",
+            "desc": "Content Security Policy header is missing.",
+            "solution": "Add a proper CSP header.",
+            "cweid": 693,
+            "wascid": 15,
+            "instances": [
+              {
+                "uri": "http://testphp.vulnweb.com/",
+                "method": "GET",
+                "param": "Header",
+                "evidence": "No CSP header"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

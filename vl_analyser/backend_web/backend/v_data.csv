@@ -1,0 +1,13 @@
+description,type,score,priority
+"XSS vulnerability in search input",          "XSS",                  5.6,  "Medium"
+"SQL injection via login form",               "SQL Injection",        9.1,  "High"
+"Cookies without Secure flag",                "Insecure Cookies",     3.2,  "Low"
+"Missing CSRF token in form submission",      "CSRF",                 4.5,  "Medium"
+"Remote Code Execution via file upload",      "RCE",                  9.8,  "High"
+"Clickjacking vulnerability on login page",   "Clickjacking",         2.5,  "Low"
+"Directory Traversal in file path input",     "Directory Traversal",  7.2,  "High"
+"XSS found in comment section",               "XSS",                  4.8,  "Medium"
+"SQL Injection in report export",             "SQL Injection",        8.7,  "High"
+"CSRF on profile update form",                "CSRF",                 3.9,  "Low"
+
+
