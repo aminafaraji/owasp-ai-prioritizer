@@ -2,7 +2,7 @@
 
 🔍 **Scanner de Vulnérabilités Sécuritaires avec IA | Classificateur OWASP Top 10 | Intégration Multi-Outil**
 
-## 🧠 **Les Etapes**
+## 🧠 **Les Étapes**
 
 1. Choisir l'approche ML (supervisé vs non-supervisé)
 2. Créer le modèle Random Forest
