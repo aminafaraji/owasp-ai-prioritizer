@@ -35,7 +35,8 @@ Pour classifier et prioriser les failles de sécurité selon l'OWASP Top 10, nou
    -fichier v_data.csv (Il convient de noter que la quantité de données disponible n’est pas suffisante pour entraîner correctement un modèle, c'est juste un exemple simple.)
 
 #### **2.2 Entraînement du Modèle**
-""""""""""""""""""""
+
+
 import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
@@ -71,11 +72,12 @@ joblib.dump(le_type, "type_encoder.pkl")
 joblib.dump(le_priority, "priority_encoder.pkl")
 
 print("✅ Modèle entraîné et sauvegardé avec succès.")
-""""""""""""""""""""
+
 
 
 #### **2.3 Priorisation des Vulnérabilités**
-""""""""""""""""""""
+
+
 # predict.py
 import joblib
 import numpy as np
@@ -94,15 +96,16 @@ def predict_priority(vuln_type: str, score: float) -> str:
         return predicted_priority
     except Exception as e:
         return f"Prediction Error: {str(e)}"
-""""""""""""""""""""
+
+
 
 #### **2.4 Création de l'API Flask**
-""""""""""""""""""""
+
+
 @app.route('/api/test-priority', methods=['POST'])
 def test_priority():
     data = request.get_json()
     text = data.get("description", "")
-
     if not text:
         return jsonify({"error": "Missing vulnerability description"}), 400
 
@@ -111,11 +114,12 @@ def test_priority():
         return jsonify({"priority": priority})
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-""""""""""""""""""""
+
 
 
 ### **Étape 1 : L'intégration d'API dans le site web avec React**
-""""""""""""""""""""
+
+
 const handlePredict = async () => {
     if (!score || !type) {
       alert("Please enter a vulnerability description");
@@ -123,7 +127,6 @@ const handlePredict = async () => {
     }
     try {
       const res = await axios.post("http://127.0.0.1:5000/predict_priority", {
-       
         type: type,
         score: score,
       });
@@ -133,7 +136,7 @@ const handlePredict = async () => {
       setPrediction("Error");
     }
   };
-""""""""""""""""""""
+
 
 <img width="949" height="482" alt="dashboard" src="https://github.com/user-attachments/assets/66204914-36b5-4e67-bcca-6e8c84e0be77" />
 <img width="939" height="478" alt="Capture d’écran 2025-09-15 193326" src="https://github.com/user-attachments/assets/16df630f-a209-4b8f-b5e3-598239e23bbc" />
